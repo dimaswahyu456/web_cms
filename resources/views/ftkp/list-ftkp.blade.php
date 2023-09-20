@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <<div class="row">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="card">
                 <div class="card-body">
@@ -41,10 +41,12 @@
                                 <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Nomor FTKP</th>
+                                <th>Nama</th>
+                                <th>Bukti</th>
+                                <th>Bagian</th>
+                                <th>Masalah</th>
+                                <th>Kode Barang</th>
                                 <th>Lokasi</th>
-                                <th>ACC</th>
-                                <th>PIC</th>
-                                <th>Keterangan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -54,10 +56,12 @@
                                 <td>{{ $loop->index + 1}}</td>
                                 <td>{{ $item->tgl}}</td>
                                 <td>{{ $item->nojnl}}</td>
-                                <td>{{ $item->lokasi}}</td>
-                                <td>{{ $item->acc}}</td>
                                 <td>{{ $item->kode}}</td>
-                                <td>{{ $item->ket}}</td>
+                                <td>{{ $item->bukti}}</td>
+                                <td>{{ $item->acc}}</td>
+                                <td>{{ $item->catatan1}}</td>
+                                <td>{{ $item->kodebrg}}</td>
+                                <td>{{ $item->lokasi}}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('ftkp.show',$item->id) }}"><i class="uil uil-eye"></i></a>
                                     <a href="{{ route('ftkp.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>

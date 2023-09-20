@@ -337,6 +337,7 @@ class ComposerStaticInit1c769e276891e3534ca588ee0ed436bb
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FtkpController' => __DIR__ . '/../..' . '/app/Http/Controllers/FtkpController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\KategoriController' => __DIR__ . '/../..' . '/app/Http/Controllers/KategoriController.php',
         'App\\Http\\Controllers\\McustController' => __DIR__ . '/../..' . '/app/Http/Controllers/McustController.php',
         'App\\Http\\Controllers\\SpkController' => __DIR__ . '/../..' . '/app/Http/Controllers/SpkController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
