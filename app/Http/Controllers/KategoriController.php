@@ -42,7 +42,7 @@ class KategoriController extends Controller
             'keterangan' => 'required'
         ]);
 
-        $resinsert = DB::insert('INSERT INTO public.mjenis (kode,keterangan) VALUES ("' . $request->kode . '","' . $request->keterangan . '"); ');
+        $resinsert = DB::insert('INSERT INTO mjenis (kode,keterangan) VALUES ("' . $request->kode . '","' . $request->keterangan . '"); ');
 
         if ($resinsert) {
             return redirect()
