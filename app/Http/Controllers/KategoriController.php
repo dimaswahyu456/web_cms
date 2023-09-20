@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kategori;
+use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
@@ -25,7 +26,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori.add-kategori');
     }
 
     /**
@@ -36,7 +37,27 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'kode' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        $resinsert = DB::insert('INSERT INTO public.mjenis (kode,keterangan) VALUES ("' . $request->kode . '","' . $request->keterangan . '"); ');
+
+        if ($resinsert) {
+            return redirect()
+                ->route('kategori.list')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
     }
 
     /**
@@ -72,7 +93,13 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->id;
+        $data = Kategori::find($input);
+        $data->kode = $request->kode;
+        $data->keterangan = $request->keterangan;
+        $data->update();
+
+        return redirect('kategori.list');
     }
 
     /**

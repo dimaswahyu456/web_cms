@@ -31,7 +31,7 @@ class SpkController extends Controller
      */
     public function create()
     {
-        //
+        return view('spk.add-spk');
     }
 
     /**

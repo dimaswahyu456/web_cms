@@ -30,7 +30,7 @@ class FtkpController extends Controller
      */
     public function create()
     {
-        //
+        return view('ftkp.add-ftkp');
     }
 
     /**
