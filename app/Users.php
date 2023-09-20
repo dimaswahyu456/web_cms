@@ -24,6 +24,8 @@ class Users extends Model
      *
      * @var array
      */
+
+     protected $primaryKey = 'id';
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -33,6 +35,8 @@ class Users extends Model
      *
      * @var array
      */
+
+     public $timestamps = false; 
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
