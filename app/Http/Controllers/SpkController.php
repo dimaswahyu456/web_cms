@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Spkh;
+use Illuminate\Support\Facades\DB;
 
 class SpkController extends Controller
 {
@@ -14,7 +16,12 @@ class SpkController extends Controller
      */
     public function index()
     {
-        //
+        $res_spk = Spkh::select("*")
+            ->limit(500)
+            ->orderBy('tgl', 'desc')
+            ->get();
+        // dd($res_spk);
+        return view('spk.list-spk', compact('res_spk'));
     }
 
     /**
@@ -46,7 +53,8 @@ class SpkController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Spkh::find($id);
+        return view('spk.show-spk', compact('data'));
     }
 
     /**
@@ -57,7 +65,8 @@ class SpkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Spkh::find($id);
+        return view('kategori.edit-kategori', compact('data'));
     }
 
     /**
@@ -80,6 +89,7 @@ class SpkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Spkh::destroy($id);
+        return redirect()->back();
     }
 }

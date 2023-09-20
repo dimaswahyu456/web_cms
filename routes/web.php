@@ -23,49 +23,53 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 // Route::group(['prefix' => 'kriteria'], function () {
 //     // Route::get('/', 'KriteriaController@index');
 
 
 // ROUTE SPK
-Route::get('spk', [SpkController::class, 'index'])->name('spk.list');
-// Route::get('spk/show/{id}', [SpkController::class, 'show'])->name('spk.show');
-// Route::get('spk/add', [SpkController::class, 'create'])->name('spk.create');
-// Route::post('spk/store', [SpkController::class, 'store'])->name('spk.add');
-// Route::get('spk/edit/{id}', [SpkController::class, 'edit'])->name('spk.edit');
-// Route::post('spk/update/{id}', [SpkController::class, 'update'])->name('spk.update');
-// Route::get('spk/delete/{id}', [SpkController::class, 'destroy'])->name('spk.destroy');
+Route::get('spk', ['as' => 'spk.list', 'uses' => 'SpkController@index']);
+Route::get('spk/add', ['as' => 'spk.create', 'uses' => 'SpkController@create']);
+Route::get('spk/show/{id}', ['as' => 'spk.show', 'uses' => 'SpkController@show']);
+Route::get('spk/store', ['as' => 'spk.store', 'uses' => 'SpkController@store']);
+Route::get('spk/edit/{id}', ['as' => 'spk.edit', 'uses' => 'SpkController@edit']);
+Route::get('spk/update/{id}', ['as' => 'spk.update', 'uses' => 'SpkController@update']);
+Route::get('spk/delete/{id}', ['as' => 'spk.destroy', 'uses' => 'SpkController@delete']);
 
 // ROUTE FTKP
-Route::get('ftkp', [FtkpController::class, 'index'])->name('ftkp.list');
-Route::get('ftkp/show/{id}', [FtkpController::class, 'show'])->name('ftkp.show');
-Route::get('ftkp/add', [FtkpController::class, 'create'])->name('ftkp.create');
-Route::post('ftkp/store', [FtkpController::class, 'store'])->name('ftkp.add');
-Route::get('ftkp/edit/{id}', [FtkpController::class, 'edit'])->name('ftkp.edit');
-Route::post('ftkp/update/{id}', [FtkpController::class, 'update'])->name('ftkp.update');
-Route::get('ftkp/delete/{id}', [FtkpController::class, 'destroy'])->name('ftkp.destroy');
-// Route::group(['prefix' => 'alternatif'], function () {
-// 	Route::get('/', 'AlternatifController@index');
-// 	Route::get('/penilaian/{alternatif}', 'AlternatifController@value');
-// 	Route::post('/nilai_simpan', 'AlternatifController@store');
-// 	Route::get('/detail/{id}', 'AlternatifController@show');
-// 	Route::post('/tambah', 'AlternatifController@insert');
-// 	Route::get('/edit/{id}', 'AlternatifController@edit');
-// 	Route::post('/update', 'AlternatifController@update');
-// 	Route::get('/hapus/{id}', 'AlternatifController@delete');
-// });
+Route::get('ftkp', ['as' => 'ftkp.list', 'uses' => 'FtkpController@index']);
+Route::get('ftkp/add', ['as' => 'ftkp.create', 'uses' => 'FtkpController@create']);
+Route::get('ftkp/show/{id}', ['as' => 'ftkp.show', 'uses' => 'FtkpController@show']);
+Route::get('ftkp/store', ['as' => 'ftkp.store', 'uses' => 'FtkpController@store']);
+Route::get('ftkp/edit/{id}', ['as' => 'ftkp.edit', 'uses' => 'FtkpController@edit']);
+Route::get('ftkp/update/{id}', ['as' => 'ftkp.update', 'uses' => 'FtkpController@update']);
+Route::get('ftkp/delete/{id}', ['as' => 'ftkp.destroy', 'uses' => 'FtkpController@delete']);
 
-// Route::group(['prefix' => 'user'], function () {
-// 	Route::get('/', 'UserController@index');
-// 	Route::post('/tambah', 'UserController@insert');
-// 	Route::get('/edit/{id}', 'UserController@edit');
-// 	Route::get('/detail/{id}', 'UserController@show');
-// 	Route::post('/update', 'UserController@update');
-// 	Route::get('/hapus/{id}', 'UserController@delete');
-// });
+// ROUTE Customer
+Route::get('cust', ['as' => 'cust.list', 'uses' => 'McustController@index']);
+Route::get('cust/add', ['as' => 'cust.create', 'uses' => 'McustController@create']);
+Route::get('cust/show/{id}', ['as' => 'cust.show', 'uses' => 'McustController@show']);
+Route::get('cust/store', ['as' => 'cust.store', 'uses' => 'McustController@store']);
+Route::get('cust/edit/{id}', ['as' => 'cust.edit', 'uses' => 'McustController@edit']);
+Route::get('cust/update/{id}', ['as' => 'cust.update', 'uses' => 'McustController@update']);
+Route::get('cust/delete/{id}', ['as' => 'cust.destroy', 'uses' => 'McustController@delete']);
 
-// Route::get('hasil', 'HasilController@index');
-// Route::get('hasilwp', 'HasilWPController@index');
-// Route::get('hasildua', 'HasilMetodeController@index');
+// ROUTE Kategori
+Route::get('kategori', ['as' => 'kategori.list', 'uses' => 'KategoriController@index']);
+Route::get('kategori/add', ['as' => 'kategori.create', 'uses' => 'KategoriController@create']);
+Route::get('kategori/show/{id}', ['as' => 'kategori.show', 'uses' => 'KategoriController@show']);
+Route::get('kategori/store', ['as' => 'kategori.store', 'uses' => 'KategoriController@store']);
+Route::get('kategori/edit/{id}', ['as' => 'kategori.edit', 'uses' => 'KategoriController@edit']);
+Route::get('kategori/update/{id}', ['as' => 'kategori.update', 'uses' => 'KategoriController@update']);
+Route::get('kategori/delete/{id}', ['as' => 'kategori.destroy', 'uses' => 'KategoriController@delete']);
+
+// ROUTE User
+Route::get('user', ['as' => 'user.list', 'uses' => 'UserController@index']);
+Route::get('user/add', ['as' => 'user.create', 'uses' => 'UserController@create']);
+Route::get('user/show/{id}', ['as' => 'user.show', 'uses' => 'UserController@show']);
+Route::get('user/store', ['as' => 'user.store', 'uses' => 'UserController@store']);
+Route::get('user/edit/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
+Route::get('user/update/{id}', ['as' => 'user.update', 'uses' => 'UserController@update']);
+Route::get('user/delete/{id}', ['as' => 'user.destroy', 'uses' => 'UserController@delete']);

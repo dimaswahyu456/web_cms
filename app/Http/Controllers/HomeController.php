@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Criteria;
-use App\Alternative;
-use App\Relation;
-use App\Result;
-use App\Hasil;
 use App\User;
-use Illuminate\Support\Facades\DB;
-
-
+use App\Ftkp;
+use App\Mcust;
+use App\Spkh;
+use App\Kategori;
 
 class HomeController extends Controller
 {
@@ -27,7 +23,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $res_dokter = DB::select('SELECT * FROM public.mcust');
-        // dump($res_dokter);
+        $user = user::all();
+        $kategori = Kategori::all();
+        $ftkp = Ftkp::all();
+        $mcust = Mcust::all();
+        $spkh = Spkh::all();
+
+        $jmlh_mcust = $mcust->count();
+        $jmlh_user = $user->count();
+        $jmlh_kategori = $kategori->count();
+        $jmlh_ftkp = $ftkp->count();
+        $jmlh_spkh = $spkh->count();
+
+        return view('home', compact('jmlh_mcust', 'jmlh_kategori', 'jmlh_user', 'jmlh_ftkp', 'jmlh_spkh'));
     }
 }

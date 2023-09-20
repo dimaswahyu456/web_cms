@@ -10,7 +10,7 @@
 @section('content')
 
 
-<h4 class="mb-0">List Data User</h4>
+<h4 class="mb-0">List Kategori</h4>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -23,7 +23,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-success" href="{{ route('spk.create') }}"> Create Data User</a>
+                    <a class="btn btn-success" href="{{ route('kategori.create') }}"> Create Kategori</a>
 
                 </div>
             </div>
@@ -39,24 +39,22 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Level</th>
+                                <th>Kode</th>
                                 <th>Keterangan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                            @foreach ($res_kategori as $item)
                             <tr>
                                 <td>{{ $loop->index + 1}}</td>
-                                <td>{{ $item->nama}}</td>
-                                <td>{{ $item->level}}</td>
+                                <td>{{ $item->kode}}</td>
                                 <td>{{ $item->keterangan}}</td>
 
                                 <td>
-                                    <a class="btn btn-info" href="{{ route('user.show',$item->id) }}"><i class="uil uil-eye"></i></a>
-                                    <a href="{{ route('user.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>
-                                    <a href="{{ route('user.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-info" href="{{ route('kategori.show',$item->id) }}"><i class="uil uil-eye"></i></a>
+                                    <a href="{{ route('kategori.edit',$item->id) }}" class="btn btn-xs btn-info"><i class="uil-pen"></i></a>
+                                    <a href="{{ route('kategori.destroy',$item->id) }}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 
                                     </form>
                                 </td>

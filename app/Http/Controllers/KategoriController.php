@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Mcust;
+use App\Kategori;
 
-class McustController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,8 @@ class McustController extends Controller
      */
     public function index()
     {
-        // $res_cust = Mcust::all();
-        $res_cust = Mcust::select("*")
-            ->orderBy('kode', 'asc')
-            ->get();
-        return view('cust.list-cust', compact('res_cust'));
+        $res_kategori = Kategori::all();
+        return view('kategori.list-kategori', compact('res_kategori'));
     }
 
     /**
@@ -51,8 +47,8 @@ class McustController extends Controller
      */
     public function show($id)
     {
-        $data = Mcust::find($id);
-        return view('cust.show-cust', compact('data'));
+        $data = Kategori::find($id);
+        return view('kategori.show-kategori', compact('data'));
     }
 
     /**
@@ -63,8 +59,8 @@ class McustController extends Controller
      */
     public function edit($id)
     {
-        $data = Mcust::find($id);
-        return view('cust.edit-cust', compact('data'));
+        $data = Kategori::find($id);
+        return view('kategori.edit-kategori', compact('data'));
     }
 
     /**
@@ -87,7 +83,7 @@ class McustController extends Controller
      */
     public function destroy($id)
     {
-        Mcust::destroy($id);
+        Kategori::destroy($id);
         return redirect()->back();
     }
 }

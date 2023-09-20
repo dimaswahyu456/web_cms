@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Ftkp;
 
 class FtkpController extends Controller
 {
@@ -14,7 +15,12 @@ class FtkpController extends Controller
      */
     public function index()
     {
-        //
+        // $res_ftkp = Ftkp::all();
+        $res_ftkp = Ftkp::select("*")
+            ->limit(500)
+            ->orderBy('tgl', 'desc')
+            ->get();
+        return view('ftkp.list-ftkp', compact('res_ftkp'));
     }
 
     /**
@@ -46,7 +52,8 @@ class FtkpController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Ftkp::find($id);
+        return view('ftkp.show-ftkp', compact('data'));
     }
 
     /**
@@ -57,7 +64,8 @@ class FtkpController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Ftkp::find($id);
+        return view('ftkp.edit-ftkp', compact('data'));
     }
 
     /**
@@ -80,6 +88,7 @@ class FtkpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ftkp::destroy($id);
+        return redirect()->back();
     }
 }
