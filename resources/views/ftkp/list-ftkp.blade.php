@@ -10,7 +10,7 @@
 @section('content')
 
 
-<h4 class="mb-0">Data Alternatif</h4>
+<h4 class="mb-0">List Order Produksi</h4>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -27,7 +27,7 @@
                       <div class="modal-dialog modal-xl">
                           <div class="modal-content">
                               <div class="modal-header">
-                                  <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Form Alternatif</h5>
+                                  <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Form SPK</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                   </button>
                               </div>
@@ -61,7 +61,17 @@
                     <thead>
                           <tr>
                             <th>No</th>
-                            <th>Nama Alternatif</th>
+                            <th>Tanggal</th>
+                            <th>Nomor SPK</th>
+                            <th>Cust</th>
+                            <th>Cust</th>
+                            <th>Nomor SO</th>
+                            <th>Kode Barang</th>
+                            <th>Jumlah</th>
+                            <th>Kirim</th>
+                            <th>Nomor KP</th>
+                            <th>Nomor SO</th>
+                            <th>Nomor PO</th>
                             <th>Aksi</th>
                           </tr>
                         </thead>

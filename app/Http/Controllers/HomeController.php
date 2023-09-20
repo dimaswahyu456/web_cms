@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $res_dokter = DB::select('SELECT * FROM public.mcust');
-        dump($res_dokter);
+        // $res_dokter = DB::select('SELECT * FROM public.mcust');
+        // dump($res_dokter);
     }
 }

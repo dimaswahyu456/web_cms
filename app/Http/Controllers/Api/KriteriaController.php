@@ -20,8 +20,8 @@ class KriteriaController extends Controller
 		// $data = DB::select("SELECT * FROM mjenis");
 		// return view('ftkp.index', compact('res_ftkp'));
 		// dump($res_ftkp);
-		$data = Kategori::all();
-		return view('kriteria.home', compact('data'));
+		// $data = Kategori::all();
+		// return view('kriteria.home', compact('data'));
 	}
 
 	public function insert(Request $request)
